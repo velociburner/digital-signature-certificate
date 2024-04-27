@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "digital_signature_certificate"
+version = "1.0.0"
+authors = [
+    {name = "Josh Broderick Phillips", email = "joshbp@brandeis.edu"}
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+description = "Final project for COSI 107a Introduction to Computer Security"
+dependencies = [
+    "cryptography==42.0.5",
+    "pytest==8.1.2",
+    "flask==3.0.3"
+]

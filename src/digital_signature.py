@@ -1,8 +1,8 @@
+from pathlib import Path
+
 from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding, rsa
-
-from pathlib import Path
 
 
 class SignedFile:
@@ -22,7 +22,7 @@ class SignedFile:
         )
 
     @property
-    def data(self):
+    def data(self) -> bytes:
         return self._data
 
     def sign(self, private_key: rsa.RSAPrivateKey) -> bytes:
@@ -33,7 +33,7 @@ class SignedFile:
             self.algorithm
         )
 
-    def verify(self, public_key: rsa.RSAPublicKey, signature: bytes):
+    def verify(self, public_key: rsa.RSAPublicKey, signature: bytes) -> bool:
         """Verifies the signature for the data using the RSA public key."""
         try:
             public_key.verify(
@@ -60,7 +60,7 @@ def gen_keypair(
     return public_key, private_key
 
 
-def read_bytes(fp: Path):
+def read_bytes(fp: Path) -> bytes:
     """Reads the bytes contained in the given file."""
     with fp.open('rb') as f:
         return f.read()

@@ -4,6 +4,8 @@ from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding, rsa
 
+from utils import verify_key_signature
+
 
 class SignedFile:
     """The contents (bytes) of a file and operations to sign and verify it
@@ -34,17 +36,14 @@ class SignedFile:
         )
 
     def verify(self, public_key: rsa.RSAPublicKey, signature: bytes) -> bool:
-        """Verifies the signature for the data using the RSA public key."""
-        try:
-            public_key.verify(
-                signature,
-                self.data,
-                self.padding,
-                self.algorithm
-            )
-            return True
-        except InvalidSignature:
-            return False
+        """Verifies the signature for the file data."""
+        return verify_key_signature(
+            public_key,
+            signature,
+            self.data,
+            self.padding,
+            self.algorithm
+        )
 
 
 def gen_keypair(

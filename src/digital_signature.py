@@ -65,6 +65,12 @@ def read_bytes(fp: Path) -> bytes:
         return f.read()
 
 
+def write_bytes(fp: Path, string: bytes):
+    """Writes the bytes to the given file."""
+    with fp.open('wb') as f:
+        f.write(string)
+
+
 def read_public_key(path: Path) -> rsa.RSAPublicKey:
     """Reads a file containing an RSA public key."""
     with path.open('rb') as f:

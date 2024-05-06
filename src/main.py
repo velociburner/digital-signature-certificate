@@ -214,7 +214,7 @@ def get_args():
     verify_sig.add_argument(
         'keyfile',
         type=Path,
-        help='Name of file with RSA key of Certificate Authority'
+        help='Name of file with RSA key of signer'
     )
 
     verify_cert = verify_subparser.add_parser('certificate')
@@ -226,7 +226,7 @@ def get_args():
     verify_cert.add_argument(
         'keyfile',
         type=Path,
-        help='Name of file with RSA key'
+        help='Name of file with RSA key of Certificate Authority'
     )
 
     args = parser.parse_args()

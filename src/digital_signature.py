@@ -4,7 +4,7 @@ from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding, rsa
 
-from utils import verify_key_signature
+from src.utils import verify_key_signature
 
 
 class SignedFile:

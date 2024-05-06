@@ -6,7 +6,7 @@ from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding, rsa
 from cryptography.x509.oid import NameOID
 
-from utils import verify_key_signature
+from src.utils import verify_key_signature
 
 
 class CertificateAuthority:

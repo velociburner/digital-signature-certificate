@@ -5,10 +5,10 @@ from pathlib import Path
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import rsa
 
-import certificate as ct
-import digital_signature as ds
-from certificate import CertificateAuthority
-from digital_signature import SignedFile
+import src.certificate as ct
+import src.digital_signature as ds
+from src.certificate import CertificateAuthority
+from src.digital_signature import SignedFile
 
 KEYDIR = Path("keys/")
 SIGDIR = Path("sigs/")

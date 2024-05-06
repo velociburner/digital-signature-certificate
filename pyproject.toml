@@ -2,6 +2,9 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+packages = ['src']
+
 [project]
 name = "digital_signature_certificate"
 version = "1.0.0"
@@ -14,5 +17,8 @@ description = "Final project for COSI 107a Introduction to Computer Security"
 dependencies = [
     "cryptography==42.0.5",
     "pytest==8.1.2",
-    "flask==3.0.3"
 ]
+requires-python = ">= 3.12"
+
+[project.scripts]
+dsc = "src.main:run"
